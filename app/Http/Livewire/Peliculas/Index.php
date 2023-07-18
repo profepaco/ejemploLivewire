@@ -12,7 +12,7 @@ class Index extends Component
 
     public function render()
     {
-        $peliculas = Pelicula::paginate(10);
+        $peliculas = Pelicula::paginate(5);
         return view('livewire.peliculas.index',['peliculas'=>$peliculas]);
     }
 

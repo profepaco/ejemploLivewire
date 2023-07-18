@@ -1,12 +1,13 @@
 <div>
+    <a href="{{route('peliculas.create')}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 mb-3">Nueva película</a>
     @forelse($peliculas as $pelicula)
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-2 border-b-2">
         <div class="text-gray-900 md:flex md:justify-between md:items-center">
             <div>
-                <img class="md:w-60 lg:w-72" src="{{asset('storage/peliculas/'.$pelicula->imagen)}}"alt="{{$pelicula->nombre}}">
+                <img class="md:w-40" src="{{asset('storage/peliculas/'.$pelicula->imagen)}}"alt="{{$pelicula->nombre}}">
             </div>
             <div class="space-y-3 p-4">
-                <a href="#" class="text-xl font-bold">
+                <a href="{{route('peliculas.show',['pelicula'=>$pelicula])}}" class="text-xl font-bold">
                     {{$pelicula->titulo}}
                 </a>
                 <p class="md:max-w-screen-sm text-sm text-gray-600 font-semibold">{{$pelicula->descripcion}}</p>
@@ -23,7 +24,11 @@
         </div> 
     </div>
     @empty
-        <p>No hay peliculas registradas</p>
+        <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg mb-2 border-b-2">
+            <div class="text-gray-900 md:flex md:justify-between md:items-center">
+                <p>No hay peliculas registradas</p>
+            </div>
+        </div>
     @endforelse
     <div class="flex justify-center mt-10">
         {{ $peliculas->links() }} 
