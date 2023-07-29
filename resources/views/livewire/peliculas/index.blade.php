@@ -13,6 +13,7 @@
                 <p class="md:max-w-screen-sm text-sm text-gray-600 font-semibold">{{$pelicula->descripcion}}</p>
                 <p class="text-sm text-gray-500 font-bold">Calificacion: <span class="font-semibold">{{$pelicula->calificacion}}</span></p>
             </div>
+            @can('edit peliculas')
             <div class="p-4 flex flex-col md:flex-row items-strech gap-3 mt-2 md:mt-0">
                 <a href="{{route('peliculas.edit',['pelicula'=>$pelicula])}}" class="bg-slate-800 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center">
                     Editar
@@ -21,6 +22,7 @@
                     Eliminar
                 </button>
             </div>
+            @endcan
         </div> 
     </div>
     @empty

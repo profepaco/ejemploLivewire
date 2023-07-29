@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class PeliculaController extends Controller
 {
+
+    public function __construct()
+    {
+        //$this->middleware(['role:super-admin']);
+        //$this->middleware('role:cliente',['only'=>['index','show']]);
+        $this->middleware('permission:view peliculas', ['only' => ['index','show']]);
+        $this->middleware('permission:create peliculas|edit peliculas',['only'=>['create','store','edit','update']]);
+        
+        
+    }
+
     /**
      * Display a listing of the resource.
      */

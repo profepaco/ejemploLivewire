@@ -11,9 +11,7 @@
                 <div class="uppercase border border-green-600 bg-green-100 text-green-600 font-bold p-2 my-3 text-xs">
                     {{session('message') }}
                 </div>
-            @endif
-           
-                    
+            @endif  
             <livewire:peliculas.index />
         </div>
     </div>
